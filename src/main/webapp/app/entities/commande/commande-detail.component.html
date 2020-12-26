@@ -1,0 +1,40 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="commande">
+            <h2><span jhiTranslate="blogApp.commande.detail.title">Commande</span> {{ commande.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="blogApp.commande.commande">Commande</span></dt>
+                <dd>
+                    <span>{{ commande.commande }}</span>
+                </dd>
+                <dt><span jhiTranslate="blogApp.commande.dateCom">Date Com</span></dt>
+                <dd>
+                    <span>{{ commande.dateCom }}</span>
+                </dd>
+                <dt><span jhiTranslate="blogApp.commande.produit">Produit</span></dt>
+                <dd>
+                    <div *ngIf="commande.produitId">
+                        <a [routerLink]="['/produit', commande.produitId, 'view']">{{ commande.produitId }}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/commande', commande.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

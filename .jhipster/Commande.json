@@ -1,0 +1,34 @@
+{
+  "fluentMethods": true,
+  "clientRootFolder": "",
+  "relationships": [
+    {
+      "relationshipName": "produit",
+      "otherEntityName": "produit",
+      "relationshipType": "many-to-one",
+      "otherEntityField": "id",
+      "otherEntityRelationshipName": "commande"
+    }
+  ],
+  "fields": [
+    {
+      "fieldName": "commande",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "dateCom",
+      "fieldType": "LocalDate",
+      "fieldValidateRules": []
+    }
+  ],
+  "changelogDate": "20201226183541",
+  "dto": "mapstruct",
+  "searchEngine": false,
+  "service": "serviceImpl",
+  "entityTableName": "commande",
+  "databaseType": "sql",
+  "readOnly": false,
+  "jpaMetamodelFiltering": false,
+  "pagination": "pagination"
+}

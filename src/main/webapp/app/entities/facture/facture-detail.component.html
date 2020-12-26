@@ -1,0 +1,40 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="facture">
+            <h2><span jhiTranslate="blogApp.facture.detail.title">Facture</span> {{ facture.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="blogApp.facture.montant">Montant</span></dt>
+                <dd>
+                    <span>{{ facture.montant }}</span>
+                </dd>
+                <dt><span jhiTranslate="blogApp.facture.modepayement">Modepayement</span></dt>
+                <dd>
+                    <span>{{ facture.modepayement }}</span>
+                </dd>
+                <dt><span jhiTranslate="blogApp.facture.produit">Produit</span></dt>
+                <dd>
+                    <div *ngIf="facture.produitId">
+                        <a [routerLink]="['/produit', facture.produitId, 'view']">{{ facture.produitId }}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/facture', facture.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>
